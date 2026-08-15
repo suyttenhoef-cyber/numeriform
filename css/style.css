@@ -1,23 +1,25 @@
 /* =========================================================
-   NumeriForm — Design System
-   Palette : bleu institutionnel + accent vert "progrès"
+   NumeriForm — Design System (v2)
+   Palette : ardoise sourde + bronze — identité indépendante,
+   volontairement écartée des codes bleu/vert pastel du secteur
+   de l'accompagnement numérique institutionnel.
    Typo     : Poppins (display) / Inter (texte courant)
    ========================================================= */
 
 :root {
-  /* Couleurs de marque (imposées par le brief) */
-  --blue-deep: #1E3A8A;
-  --blue-deep-dark: #16296b;
-  --blue-light: #3B82F6;
-  --green: #10B981;
-  --green-dark: #0b8f66;
+  /* Couleurs de marque — ardoise profonde + accent bronze */
+  --blue-deep: #2B3A4A;        /* ardoise foncée (titres, fonds) */
+  --blue-deep-dark: #1D2732;   /* ardoise quasi noire (footer) */
+  --blue-light: #56697C;       /* ardoise moyenne (texte secondaire sur fond foncé) */
+  --green: #9C6B33;            /* bronze — accent unique, sobre */
+  --green-dark: #7E5527;
   --white: #FFFFFF;
-  --gray-50: #F8FAFC;
-  --gray-100: #F1F5F9;
-  --gray-200: #E2E8F0;
-  --gray-400: #94A3B8;
-  --gray-600: #556075;
-  --ink: #101B33;
+  --gray-50: #F5F2EC;          /* papier chaud (remplace le gris-bleu pastel) */
+  --gray-100: #EEE9DF;
+  --gray-200: #E1DBCC;
+  --gray-400: #9C9484;
+  --gray-600: #5B5648;
+  --ink: #1C1B18;
 
   /* Typo */
   --font-display: 'Poppins', 'Inter', sans-serif;
@@ -27,9 +29,9 @@
   --radius-sm: 8px;
   --radius-md: 14px;
   --radius-lg: 24px;
-  --shadow-sm: 0 2px 8px rgba(16, 27, 51, 0.06);
-  --shadow-md: 0 12px 32px rgba(16, 27, 51, 0.10);
-  --shadow-lg: 0 24px 60px rgba(16, 27, 51, 0.16);
+  --shadow-sm: 0 2px 8px rgba(28, 27, 24, 0.06);
+  --shadow-md: 0 12px 32px rgba(28, 27, 24, 0.09);
+  --shadow-lg: 0 24px 60px rgba(28, 27, 24, 0.14);
   --container: 1160px;
 }
 
@@ -292,13 +294,50 @@ section { padding: 88px 0; }
 }
 .hero-trust strong { color: var(--blue-deep); font-family: var(--font-display); display: block; font-size: 1.3rem; }
 
-/* Signature visuelle : le chemin numérique (parcours en 3 étapes, en forme de passerelle) */
-.path-visual {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 4/3.1;
+/* Signature visuelle : le "traducteur de jargon" — la vulgarisation
+   est le vrai point distinctif de Sébastien, donc c'est ce que la
+   page d'accueil montre en premier, plutôt qu'un schéma de démarche. */
+.jargon-card {
+  background: var(--ink);
+  border-radius: var(--radius-lg);
+  padding: 34px;
+  color: var(--white);
 }
-.path-visual svg { width: 100%; height: 100%; }
+.jargon-card .jargon-label {
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--green);
+  margin-bottom: 22px;
+}
+.jargon-row {
+  padding: 16px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.12);
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 14px;
+  align-items: center;
+}
+.jargon-row:last-child { border-bottom: none; }
+.jargon-before {
+  font-size: 0.86rem;
+  color: rgba(255,255,255,0.5);
+  text-decoration: line-through;
+  text-decoration-color: rgba(255,255,255,0.3);
+}
+.jargon-arrow { color: var(--green); font-size: 1rem; }
+.jargon-after {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.94rem;
+  color: var(--white);
+}
+@media (max-width: 640px) {
+  .jargon-row { grid-template-columns: 1fr; gap: 4px; text-align: left; }
+  .jargon-arrow { display: none; }
+}
 
 /* ---------- Bandeau logos / secteurs ---------- */
 .sectors-strip {
@@ -387,9 +426,9 @@ section { padding: 88px 0; }
 .strength-row h4 { margin-bottom: 4px; font-size: 1.02rem; color: var(--ink); }
 .strength-row p { margin: 0; font-size: 0.93rem; }
 
-/* ---------- Bandeau bleu (CTA / stats) ---------- */
+/* ---------- Bandeau ardoise (CTA / stats) ---------- */
 .band-blue {
-  background: radial-gradient(1200px 400px at 15% -10%, var(--blue-light) 0%, transparent 60%), var(--blue-deep);
+  background: var(--ink);
   color: var(--white);
 }
 .band-blue h2, .band-blue h3 { color: var(--white); }
@@ -757,7 +796,7 @@ section { padding: 88px 0; }
 /* ---------- Responsive ---------- */
 @media (max-width: 980px) {
   .hero-grid { grid-template-columns: 1fr; }
-  .hero .path-visual { order: -1; max-width: 420px; margin: 0 auto; }
+  .hero .jargon-card { order: -1; max-width: 460px; margin: 0 auto; }
   .grid-3, .grid-4 { grid-template-columns: repeat(2, 1fr); }
   .footer-grid { grid-template-columns: 1fr 1fr; }
   .stats-row { grid-template-columns: repeat(2, 1fr); }
