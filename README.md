@@ -11,9 +11,8 @@ numeriform-site/
 ├── index.html                    Accueil
 ├── a-propos.html                 À propos
 ├── formations.html               Catalogue de formations
-├── accompagnement-conseil.html   Accompagnement & conseil
+├── accompagnement-conseil.html   Conseil & accompagnement
 ├── e-learning.html               Conception e-learning
-├── ressources.html               Blog / ressources
 ├── contact.html                  Contact + formulaire
 ├── css/style.css                 Design system complet (tokens, composants)
 ├── js/main.js                    Menu mobile, filtres, formulaires
@@ -58,6 +57,14 @@ se déploie directement sur GitHub Pages, Netlify ou tout hébergement statique.
    `CNAME` à la racine contenant le domaine, puis configurer les DNS chez le
    registrar (enregistrement `CNAME` ou `A` selon la documentation GitHub Pages).
 
+## Email de contact et anti-spam
+
+Le site n'affiche jamais l'adresse email en clair (pour limiter la
+récupération automatisée par des robots à des fins de spam). Tous les liens
+de contact utilisent le texte **« Nous écrire »**, qui pointe en interne vers
+`mailto:s.numeriform@gmail.com`. Pour changer cette adresse, faites une
+recherche globale sur `s.numeriform@gmail.com` dans les fichiers `.html`.
+
 ## Formulaire de contact et newsletter
 
 Le formulaire fonctionne actuellement **côté front-end uniquement** (message
@@ -86,21 +93,17 @@ de droits d'image. Suggestions de visuels à ajouter par la suite :
   post-its de brainstorming.
 - **E-learning** : capture d'écran stylisée d'un module Storyline/Rise (à
   produire à partir d'un vrai module une fois disponible).
-- **Blog** : une image d'illustration par catégorie (IA, productivité,
-  inclusion numérique, pouvoirs locaux, outils Microsoft), pour garder une
-  cohérence visuelle dans les vignettes d'articles.
-- **Logo** : le logo texte actuel (« Numeri**Form** ») peut être remplacé par
-  un logo graphique dans `images/` puis référencé dans le `<header>` de
-  chaque page.
+- **Blog** : la rubrique Ressources/blog a été retirée du site pour rester
+  centré sur les formations et le conseil. Si vous voulez la réintroduire un
+  jour, prévoyez une image d'illustration par catégorie (IA, productivité,
+  inclusion numérique, pouvoirs locaux, outils Microsoft).
+- **Logo** : déjà intégré (`images/logo.png`), utilisé dans le header et le
+  footer de chaque page.
 
 ## À personnaliser avant mise en ligne
 
-- Adresse email de contact (`contact@numeriform.be` est un placeholder).
-- Numéro de téléphone si vous souhaitez l'afficher.
-- Témoignages : ceux du site sont **illustratifs** (clairement indiqués comme
-  tels sur la page d'accueil) — à remplacer par de vrais retours clients dès
-  que possible pour la crédibilité et le SEO local.
-- Statistiques du bandeau bleu (10+ ans, 500+ agents formés, etc.) — à
-  ajuster avec vos chiffres réels.
+- Numéro de téléphone si vous ne souhaitez pas l'afficher publiquement.
+- Statistiques du bandeau ardoise (10+ ans, 500+ professionnels formés,
+  etc.) — à ajuster avec vos chiffres réels.
 - Liens réseaux sociaux / LinkedIn — à ajouter dans le pied de page et dans
-  le schéma JSON-LD (`sameAs`) de `index.html`.
+  le schéma JSON-LD de `index.html`.
